@@ -1,3 +1,5 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/d89195fc53739793c4bb/maintainability)](https://codeclimate.com/github/phemonick/Java-developers/maintainability)
+[![CircleCI](https://circleci.com/gh/phemonick/Java-developers.svg?style=svg)](https://circleci.com/gh/phemonick/Java-developers)
 # Java-developers
 A mobile application that allows user see list of java developers.
 
