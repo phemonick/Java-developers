@@ -3,7 +3,7 @@ package com.example.adekunleoluwafemi.javadevelopers.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class GithubUsers {
+public class GithubUser {
 
     @SerializedName("avatar_url")
     @Expose
@@ -17,7 +17,7 @@ public class GithubUsers {
     @Expose
     private String username;
 
-    public GithubUsers(String username, String github_link, String userImage) {
+    public GithubUser(String username, String github_link, String userImage) {
         this.username = username;
         this.github_link = github_link;
         this.userImage = userImage;

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.adekunleoluwafemi.javadevelopers.R;
-import com.example.adekunleoluwafemi.javadevelopers.model.GithubUsers;
+import com.example.adekunleoluwafemi.javadevelopers.model.GithubUser;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -19,10 +19,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class GithubAdapter extends RecyclerView.Adapter<GithubAdapter.GithubListHolder> {
 
-    private List<GithubUsers> mGithubUsers;
+    private List<GithubUser> mGithubUsers;
     Context context;
 
-    public GithubAdapter(List<GithubUsers> githubUsers, Context context) {
+    public GithubAdapter(List<GithubUser> githubUsers, Context context) {
         mGithubUsers = githubUsers;
         this.context = context;
     }
@@ -37,7 +37,7 @@ public class GithubAdapter extends RecyclerView.Adapter<GithubAdapter.GithubList
 
     @Override
     public void onBindViewHolder(GithubListHolder holder, int position) {
-        GithubUsers users = mGithubUsers.get(position);
+        GithubUser users = mGithubUsers.get(position);
         holder.bind(users);
     }
     @Override
@@ -50,7 +50,7 @@ public class GithubAdapter extends RecyclerView.Adapter<GithubAdapter.GithubList
         private ImageView mImageView;
         private TextView mUserName;
         private TextView mUserTextView;
-        private GithubUsers mGithubUsers;
+        private GithubUser mGithubUsers;
         private CircleImageView circleImageView;
 
 
@@ -62,7 +62,7 @@ public class GithubAdapter extends RecyclerView.Adapter<GithubAdapter.GithubList
 
         }
 
-        public void bind(GithubUsers githubUsers) {
+        public void bind(GithubUser githubUsers) {
             mGithubUsers = githubUsers;
 
             mUserTextView.setText(githubUsers.getGithubLink());

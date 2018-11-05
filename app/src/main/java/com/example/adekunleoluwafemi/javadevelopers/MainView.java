@@ -1,10 +1,10 @@
 package com.example.adekunleoluwafemi.javadevelopers;
 
-import com.example.adekunleoluwafemi.javadevelopers.model.GithubUsers;
+import com.example.adekunleoluwafemi.javadevelopers.model.GithubUser;
 
 import java.util.List;
 
 public interface MainView {
 
-    void displayDevList(List<GithubUsers> allUsers);
+    void displayDevList(List<GithubUser> allUsers);
 }

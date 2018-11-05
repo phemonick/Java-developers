@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import com.example.adekunleoluwafemi.javadevelopers.adapter.GithubAdapter;
-import com.example.adekunleoluwafemi.javadevelopers.model.GithubUsers;
+import com.example.adekunleoluwafemi.javadevelopers.model.GithubUser;
 import com.example.adekunleoluwafemi.javadevelopers.presenter.GithubPresenter;
 
 import java.util.List;
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     @Override
-    public void displayDevList(List<GithubUsers> allUsers) {
+    public void displayDevList(List<GithubUser> allUsers) {
         mUserList.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new GithubAdapter(allUsers, this);
         mUserList.setAdapter(mAdapter);

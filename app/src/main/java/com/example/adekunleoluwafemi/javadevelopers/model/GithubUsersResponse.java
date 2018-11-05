@@ -10,14 +10,14 @@ import java.util.List;
 public class GithubUsersResponse {
     @SerializedName("items")
     @Expose
-    private List<GithubUsers> githubUsers ;
+    private List<GithubUser> githubUsers ;
 
     GithubUsersResponse() {
-        githubUsers = new ArrayList<GithubUsers>();
+        githubUsers = new ArrayList<GithubUser>();
     }
 
-    //    returns List of type GithubUsers
-    public List<GithubUsers> getGithubUsers() {
+    //    returns List of type GithubUser
+    public List<GithubUser> getGithubUsers() {
         return githubUsers;
     }
 }
