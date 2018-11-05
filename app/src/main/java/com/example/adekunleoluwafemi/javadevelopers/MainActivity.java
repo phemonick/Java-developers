@@ -11,18 +11,17 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mUserList;
-    private Button nextPage;
+    private Button mDetailsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mUserList = findViewById(R.id.my_recycler_view);
-        nextPage = findViewById(R.id.to_detail);
+        mDetailsButton = findViewById(R.id.to_detail);
     }
 
     public void toNextPage(View view) {
-        System.out.println("hello clicked");
         startActivity(new Intent(this, DetailActivity.class));
     }
 }
