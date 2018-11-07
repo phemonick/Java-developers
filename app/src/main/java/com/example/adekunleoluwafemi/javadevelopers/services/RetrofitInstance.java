@@ -11,7 +11,7 @@ public class RetrofitInstance {
     public static GetGithubUsers getData() {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
-                    .baseUrl("http://api.rottentomatoes.com/api/public/v1.0")
+                    .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
