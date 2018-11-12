@@ -17,10 +17,21 @@ public class GithubUser {
     @Expose
     private String username;
 
-    public GithubUser(String username, String github_link, String userImage) {
+    @SerializedName("id")
+    @Expose
+    private String id;
+
+    @SerializedName("site_admin")
+    @Expose
+    private boolean isAdmin;
+
+    public GithubUser(String username, String github_link, String userImage, String id, boolean isAdmin) {
         this.username = username;
         this.github_link = github_link;
         this.userImage = userImage;
+        this.id = id;
+        this.isAdmin = isAdmin;
+
     }
 
     public String getUserImage() {
@@ -33,5 +44,13 @@ public class GithubUser {
 
     public String getGithubLink() {
         return github_link;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public boolean getIsAdmin() {
+        return isAdmin;
     }
 }

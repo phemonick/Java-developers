@@ -15,6 +15,8 @@ import retrofit2.Response;
 public class GithubPresenter {
 
 
+
+    private static final String TAG = "GithupPresenteTag";
     private RetrofitInstance retrofitInstance = new RetrofitInstance();
     private List<GithubUser> foundUsers;
     MainView mainView;
