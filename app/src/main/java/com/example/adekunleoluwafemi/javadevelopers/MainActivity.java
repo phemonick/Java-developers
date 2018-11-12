@@ -1,27 +1,35 @@
 package com.example.adekunleoluwafemi.javadevelopers;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+import com.example.adekunleoluwafemi.javadevelopers.adapter.GithubAdapter;
+import com.example.adekunleoluwafemi.javadevelopers.model.GithubUsers;
+import com.example.adekunleoluwafemi.javadevelopers.presenter.GithubPresenter;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements MainView {
 
     private RecyclerView mUserList;
-    private Button mDetailsButton;
+    public GithubPresenter presenter;
+    public GithubAdapter mAdapter;
 
+    private static final String TAG = "GithupPresenteTag";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mUserList = findViewById(R.id.my_recycler_view);
-        mDetailsButton = findViewById(R.id.to_detail);
+        presenter = new GithubPresenter(this);
     }
 
-    public void toNextPage(View view) {
-        startActivity(new Intent(this, DetailActivity.class));
+    @Override
+    public void displayDevList(List<GithubUsers> allUsers) {
+        mUserList.setLayoutManager(new LinearLayoutManager(this));
+        mAdapter = new GithubAdapter(allUsers, this);
+        mUserList.setAdapter(mAdapter);
     }
+
 }

@@ -6,8 +6,8 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface GetGithubUsers {
-    @GET("?q=type:User+location:Nairobi+language:JAVA")
-    public Call<GithubUsersResponse> getUsers();
+    @GET("search/users?q=language:java+location:nairobi&per_page=40&sort=followers")
+    Call<GithubUsersResponse> getUsers();
 
 
 }
