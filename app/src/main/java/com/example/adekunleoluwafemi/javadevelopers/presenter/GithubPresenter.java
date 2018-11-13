@@ -3,7 +3,7 @@ package com.example.adekunleoluwafemi.javadevelopers.presenter;
 import android.util.Log;
 
 import com.example.adekunleoluwafemi.javadevelopers.MainView;
-import com.example.adekunleoluwafemi.javadevelopers.model.GithubUsers;
+import com.example.adekunleoluwafemi.javadevelopers.model.GithubUser;
 import com.example.adekunleoluwafemi.javadevelopers.model.GithubUsersResponse;
 import com.example.adekunleoluwafemi.javadevelopers.services.RetrofitInstance;
 
@@ -19,7 +19,7 @@ public class GithubPresenter {
 
     private static final String TAG = "GithupPresenteTag";
     private RetrofitInstance retrofitInstance = new RetrofitInstance();
-    private List<GithubUsers> foundUsers;
+    private List<GithubUser> foundUsers;
     MainView mainView;
 
     public GithubPresenter(MainView mainView) {
@@ -38,7 +38,7 @@ public class GithubPresenter {
                 int responseCode = response.code();
                 if(responseCode == 200) {
                     String see = response.toString();
-                    List<GithubUsers> users = response.body().getGithubUsers();
+                    List<GithubUser> users = response.body().getGithubUsers();
                     String responseAsString = users.toString();
                     mainView.displayDevList(users);
                     Log.d(TAG, "onResponse: " + responseAsString);
