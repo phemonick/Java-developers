@@ -15,7 +15,6 @@ import retrofit2.Response;
 public class GithubPresenter {
 
 
-
     private static final String TAG = "GithupPresenteTag";
     private RetrofitInstance retrofitInstance = new RetrofitInstance();
     private List<GithubUser> foundUsers;
@@ -35,7 +34,7 @@ public class GithubPresenter {
                     @Override
                     public void onResponse(Call<GithubUsersResponse> call, Response<GithubUsersResponse> response) {
                         int responseCode = response.code();
-                        if(responseCode == 200) {
+                        if (responseCode == 200) {
                             List<GithubUser> users = response.body().getGithubUsers();
                             String responseAsString = users.toString();
                             mainView.displayDevList(users);
