@@ -1,6 +1,5 @@
 package com.example.adekunleoluwafemi.javadevelopers.presenter;
 
-import android.util.Log;
 
 import com.example.adekunleoluwafemi.javadevelopers.MainView;
 import com.example.adekunleoluwafemi.javadevelopers.model.GithubUser;
@@ -29,6 +28,7 @@ public class GithubPresenter {
 
 
     public void getGithubUsers() {
+        mainView.showProgress();
         retrofitInstance
                 .getData()
                 .getUsers()
@@ -37,13 +37,10 @@ public class GithubPresenter {
             public void onResponse(Call<GithubUsersResponse> call, Response<GithubUsersResponse> response) {
                 int responseCode = response.code();
                 if(responseCode == 200) {
-                    String see = response.toString();
                     List<GithubUser> users = response.body().getGithubUsers();
                     String responseAsString = users.toString();
+                    mainView.hideProgress();
                     mainView.displayDevList(users);
-                    Log.d(TAG, "onResponse: " + responseAsString);
-                }else{
-                    Log.d(TAG, "noResponse: " + "Nothing was fetched");
                 }
             }
 
@@ -53,7 +50,6 @@ public class GithubPresenter {
                     throw new InterruptedException("Something went wrong!");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                    Log.e(TAG, "onFailure: ", e);
                 }
             }
         });

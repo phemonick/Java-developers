@@ -121,7 +121,7 @@
                 android:textStyle="bold"
                 android:typeface="monospace"
                 card_view:layout_constraintEnd_toStartOf="@+id/textView8"
-                card_view:layout_constraintHorizontal_bias="0.307"
+                card_view:layout_constraintHorizontal_bias="0.433"
                 card_view:layout_constraintStart_toEndOf="@+id/textView9"
                 card_view:layout_constraintTop_toBottomOf="@+id/user_name" />
 
@@ -141,10 +141,13 @@
                 android:id="@+id/is_admin"
                 android:layout_width="wrap_content"
                 android:layout_height="26dp"
-                android:layout_marginStart="100dp"
-                android:layout_marginLeft="100dp"
+                android:layout_marginStart="208dp"
+                android:layout_marginLeft="208dp"
                 android:layout_marginTop="32dp"
+                android:layout_marginEnd="195dp"
+                android:layout_marginRight="195dp"
                 android:textColor="@color/cardview_dark_background"
+                card_view:layout_constraintEnd_toStartOf="@+id/user_id"
                 card_view:layout_constraintStart_toEndOf="@+id/location"
                 card_view:layout_constraintTop_toBottomOf="@+id/textView3"
                 tools:text="false" />

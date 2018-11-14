@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,7 +52,6 @@ public class GithubAdapter extends RecyclerView.Adapter<GithubAdapter.GithubList
 
         private ImageView mImageView;
         private TextView mUserName;
-        private TextView mUserTextView;
         private GithubUser mGithubUsers;
         private CircleImageView circleImageView;
 
@@ -62,7 +60,6 @@ public class GithubAdapter extends RecyclerView.Adapter<GithubAdapter.GithubList
             super(inflater.inflate(R.layout.list_item_user, parent, false));
             itemView.setOnClickListener(this);
             mUserName = itemView.findViewById(R.id.user_name);
-            mUserTextView = itemView.findViewById(R.id.user_desc);
             circleImageView = itemView.findViewById(R.id.profile_image);
 
         }
@@ -74,15 +71,12 @@ public class GithubAdapter extends RecyclerView.Adapter<GithubAdapter.GithubList
                     mGithubUsers.getId(), mGithubUsers.getUserImage(),
                     mGithubUsers.getUsername(), mGithubUsers.getGithubLink());
             context.startActivity(intent);
-            Log.d("CONTEXTINHERE", "context " + mGithubUsers.getUserImage());
         }
 
 
         public void bind(GithubUser githubUsers) {
             mGithubUsers = githubUsers;
-            Log.d("Myusername", githubUsers.getUsername());
 
-            mUserTextView.setText(githubUsers.getGithubLink());
             String imageUri = githubUsers.getUserImage();
             Picasso.with(context).load(imageUri).fit().centerCrop()
                     .placeholder(R.drawable.ic_launcher_background).into(circleImageView);
