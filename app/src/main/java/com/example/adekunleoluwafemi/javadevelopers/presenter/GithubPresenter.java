@@ -2,7 +2,7 @@ package com.example.adekunleoluwafemi.javadevelopers.presenter;
 
 
 import com.example.adekunleoluwafemi.javadevelopers.MainView;
-import com.example.adekunleoluwafemi.javadevelopers.model.GithubUsers;
+import com.example.adekunleoluwafemi.javadevelopers.model.GithubUser;
 import com.example.adekunleoluwafemi.javadevelopers.model.GithubUsersResponse;
 import com.example.adekunleoluwafemi.javadevelopers.services.RetrofitInstance;
 
@@ -15,10 +15,9 @@ import retrofit2.Response;
 public class GithubPresenter {
 
 
-
     private static final String TAG = "GithupPresenteTag";
     private RetrofitInstance retrofitInstance = new RetrofitInstance();
-    private List<GithubUsers> foundUsers;
+    private List<GithubUser> foundUsers;
     MainView mainView;
 
     public GithubPresenter(MainView mainView) {
@@ -32,27 +31,25 @@ public class GithubPresenter {
                 .getData()
                 .getUsers()
                 .enqueue(new Callback<GithubUsersResponse>() {
-            @Override
-            public void onResponse(Call<GithubUsersResponse> call, Response<GithubUsersResponse> response) {
-                int responseCode = response.code();
-                if(responseCode == 200) {
+                    @Override
+                    public void onResponse(Call<GithubUsersResponse> call, Response<GithubUsersResponse> response) {
+                        int responseCode = response.code();
+                        if (responseCode == 200) {
+                            List<GithubUser> users = response.body().getGithubUsers();
+                            String responseAsString = users.toString();
+                            mainView.displayDevList(users);
+                        }
+                    }
 
-                    List<GithubUsers> users = response.body().getGithubUsers();
-                    String responseAsString = users.toString();
-                    mainView.displayDevList(users);
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GithubUsersResponse> call, Throwable t) {
-                try {
-                    throw new InterruptedException("Something went wrong!");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+                    @Override
+                    public void onFailure(Call<GithubUsersResponse> call, Throwable t) {
+                        try {
+                            throw new InterruptedException("Something went wrong!");
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
 
     }
 }
