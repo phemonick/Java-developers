@@ -5,13 +5,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitInstance {
 
-    private static Retrofit retrofit = null;
-    private static String BASE_URL = "https://api.github.com/search/users";
+    private static Retrofit retrofit;
+
+    private static String BASE_URL = "https://api.github.com";
 
     public static GetGithubUsers getData() {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
-                    .baseUrl("http://api.rottentomatoes.com/api/public/v1.0")
+                    .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
