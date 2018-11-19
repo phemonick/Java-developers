@@ -16,6 +16,7 @@ public class GithubPresenter {
 
 
 
+    private static final String TAG = "GithupPresenteTag";
     private RetrofitInstance retrofitInstance = new RetrofitInstance();
     private List<GithubUser> foundUsers;
     MainView mainView;
@@ -27,29 +28,31 @@ public class GithubPresenter {
 
 
     public void getGithubUsers() {
+        mainView.showProgress();
         retrofitInstance
                 .getData()
                 .getUsers()
                 .enqueue(new Callback<GithubUsersResponse>() {
-                    @Override
-                    public void onResponse(Call<GithubUsersResponse> call, Response<GithubUsersResponse> response) {
-                        int responseCode = response.code();
-                        if(responseCode == 200) {
-                            List<GithubUser> users = response.body().getGithubUsers();
-                            String responseAsString = users.toString();
-                            mainView.displayDevList(users);
-                        }
-                    }
+            @Override
+            public void onResponse(Call<GithubUsersResponse> call, Response<GithubUsersResponse> response) {
+                int responseCode = response.code();
+                if(responseCode == 200) {
+                    List<GithubUser> users = response.body().getGithubUsers();
+                    String responseAsString = users.toString();
+                    mainView.hideProgress();
+                    mainView.displayDevList(users);
+                }
+            }
 
-                    @Override
-                    public void onFailure(Call<GithubUsersResponse> call, Throwable t) {
-                        try {
-                            throw new InterruptedException("Something went wrong!");
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
+            @Override
+            public void onFailure(Call<GithubUsersResponse> call, Throwable t) {
+                try {
+                    throw new InterruptedException("Something went wrong!");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
     }
 }
