@@ -34,4 +34,6 @@ dependencies {
     testImplementation "junit:junit:$rootProject.testImplementationVersion"
     androidTestImplementation "com.android.support.test:runner:$rootProject.androidTestImplementationVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.androidTestImplementationExpressoVersion"
+    androidTestImplementation "com.android.support.test:rules:$rootProject.testRules"
+    androidTestImplementation  "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion"
 }
