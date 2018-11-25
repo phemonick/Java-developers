@@ -21,6 +21,23 @@ You are going to need
 * Linux, macOS or Windows
 * Android studio
 
+### Features ###
+
+```
+1. Grid display for developers
+2. Developer details including avatar and github url
+3. Share feature
+
+```
+
+### Stacks Used ###
+
+```
+1. Java
+2. Android
+
+```
+
 ### Getting Set Up ###
 
 * Clone this repository to your local machine

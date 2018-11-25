@@ -35,7 +35,7 @@ public class GithubPresenter {
                 int responseCode = response.code();
                 if(responseCode == 200) {
                     List<GithubUser> users = response.body().getGithubUsers();
-                    String responseAsString = users.toString();
+
                     mainView.hideProgress();
                     mainView.displayDevList(users);
                 }
