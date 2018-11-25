@@ -1,5 +1,6 @@
 package com.example.adekunleoluwafemi.javadevelopers;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     public GithubPresenter presenter;
     public GithubAdapter mAdapter;
     private ProgressBar progressBar;
+    private SwipeRefreshLayout swipeRefresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,15 @@ public class MainActivity extends AppCompatActivity implements MainView {
         mUserList = findViewById(R.id.my_recycler_view);
         progressBar = findViewById(R.id.progress);
         presenter = new GithubPresenter(this);
+        presenter.getGithubUsers();
+        swipeRefresh = findViewById(R.id.swipe_refresh);
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                presenter.getGithubUsers();
+                swipeRefresh.setRefreshing(false);
+            }
+        });
     }
 
     @Override
