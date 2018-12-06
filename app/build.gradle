@@ -36,4 +36,6 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.androidTestImplementationExpressoVersion"
     androidTestImplementation "com.android.support.test:rules:$rootProject.testRules"
     androidTestImplementation  "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoVersion"
+    implementation "com.android.support:design:$rootProject.snackIVersion"
+
 }
