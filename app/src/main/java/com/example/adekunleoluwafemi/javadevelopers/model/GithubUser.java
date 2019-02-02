@@ -28,7 +28,28 @@ public class GithubUser {
     @Expose
     private boolean isAdmin;
 
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
+    }
+
+    public void setGithub_link(String github_link) {
+        this.github_link = github_link;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
     public String getUserImage() {
+
         return userImage;
     }
 
