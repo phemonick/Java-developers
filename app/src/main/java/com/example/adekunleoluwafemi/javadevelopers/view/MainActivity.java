@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.example.adekunleoluwafemi.javadevelopers.MvpApplication;
 import com.example.adekunleoluwafemi.javadevelopers.R;
 import com.example.adekunleoluwafemi.javadevelopers.adapter.GithubAdapter;
 import com.example.adekunleoluwafemi.javadevelopers.model.GithubUser;
@@ -19,10 +20,15 @@ import com.example.adekunleoluwafemi.javadevelopers.util.NetworkUtility;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 public class MainActivity extends AppCompatActivity implements MainContract.MainView {
 
     private RecyclerView mUserList;
+
+    @Inject
     public MainContract.GithubPresenter presenter;
+
     public GithubAdapter mAdapter;
     private ProgressBar progressBar;
     private SwipeRefreshLayout swipeRefresh;
@@ -32,13 +38,13 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ((MvpApplication) getApplication()).getComponent().inject(this);
         mUserList = findViewById(R.id.my_recycler_view);
         mUserList.setLayoutManager(new GridLayoutManager(this, 2));
         progressBar = findViewById(R.id.progress);
         coordinatorLayout = findViewById(R.id
                 .coordinatorLayout);
         showProgress();
-        presenter = new GithubPresenterImpl(new RetrofitInstance());
         isConnected();
         swipeRefresh = findViewById(R.id.swipe_refresh);
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

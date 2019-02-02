@@ -19,7 +19,10 @@ public class GithubPresenterImpl implements MainContract.GithubPresenter, MainCo
      */
     @Override
     public void getGithubUsers() {
-        getNoticeIntractor.getNoticeArrayList(this);
+        if (mainView != null) {
+            getNoticeIntractor.getNoticeArrayList(this);
+        }
+
     }
 
     /**
@@ -40,6 +43,11 @@ public class GithubPresenterImpl implements MainContract.GithubPresenter, MainCo
 
     @Override
     public void setView(MainContract.MainView view) {
+
+        if(view == null) {
+            throw new ViewNotFoundException();
+        }
+
         this.mainView = view;
     }
 
