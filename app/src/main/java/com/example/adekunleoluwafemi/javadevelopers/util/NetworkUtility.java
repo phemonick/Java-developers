@@ -4,6 +4,9 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+/**
+ * Check for network status.
+ */
 public class NetworkUtility {
 
     public static boolean checkStatus(Context context) {

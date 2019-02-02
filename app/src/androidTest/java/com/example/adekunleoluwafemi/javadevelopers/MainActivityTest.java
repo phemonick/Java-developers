@@ -16,6 +16,7 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static org.hamcrest.Matchers.anything;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 
+import com.example.adekunleoluwafemi.javadevelopers.view.MainActivity;
 
 
 @RunWith(AndroidJUnit4.class)

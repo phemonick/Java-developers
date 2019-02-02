@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.adekunleoluwafemi.javadevelopers.DetailActivity;
+import com.example.adekunleoluwafemi.javadevelopers.view.DetailActivity;
 import com.example.adekunleoluwafemi.javadevelopers.R;
 import com.example.adekunleoluwafemi.javadevelopers.model.GithubUser;
 import com.squareup.picasso.Picasso;
