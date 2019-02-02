@@ -3,6 +3,9 @@ package com.example.adekunleoluwafemi.javadevelopers.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Github user model.
+ */
 public class GithubUser {
 
     @SerializedName("avatar_url")
@@ -24,15 +27,6 @@ public class GithubUser {
     @SerializedName("site_admin")
     @Expose
     private boolean isAdmin;
-
-    public GithubUser(String username, String github_link, String userImage, String id, boolean isAdmin) {
-        this.username = username;
-        this.github_link = github_link;
-        this.userImage = userImage;
-        this.id = id;
-        this.isAdmin = isAdmin;
-
-    }
 
     public String getUserImage() {
         return userImage;

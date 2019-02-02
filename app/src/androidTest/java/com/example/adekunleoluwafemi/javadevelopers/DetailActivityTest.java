@@ -3,6 +3,8 @@ package com.example.adekunleoluwafemi.javadevelopers;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.rule.ActivityTestRule;
 
+import com.example.adekunleoluwafemi.javadevelopers.view.DetailActivity;
+
 import org.junit.Rule;
 import org.junit.Test;
 
